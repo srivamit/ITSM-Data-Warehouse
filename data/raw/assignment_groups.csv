@@ -1,0 +1,5 @@
+assignment_group_id,group_name,group_type,active_status
+GRP001,Service Desk,Incident Support,Active
+GRP002,Application Support,Application Operations,Active
+GRP003,Platform Operations,Infrastructure Operations,Active
+GRP004,Database Operations,Data Platform Support,Active

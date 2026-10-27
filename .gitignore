@@ -1,0 +1,42 @@
+# Python cache and test output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Temporary and operating-system files
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# Local SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.sqlite-shm
+*.sqlite-wal
+
+# Generated output
+/data/generated/
+/reports/generated/
+
+# Build artifacts
+build/
+dist/

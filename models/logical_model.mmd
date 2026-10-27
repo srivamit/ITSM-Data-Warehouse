@@ -1,0 +1,52 @@
+erDiagram
+    ASSIGNMENT_GROUP ||--o{ INCIDENT : "responsible for"
+    CONFIGURATION_ITEM ||--o{ INCIDENT : "primary CI for"
+    INCIDENT ||--o{ SLA_MEASUREMENT : "has measurements"
+    CONFIGURATION_ITEM ||--o{ CHANGE_REQUEST : "primary CI for"
+
+    INCIDENT {
+        business_id incident_id PK
+        description short_description
+        business_value priority
+        business_value status
+        timestamp opened_at
+        timestamp resolved_at
+        identifier assignment_group_id FK
+        identifier primary_ci_id FK
+        timestamp source_created_at
+        timestamp source_updated_at
+    }
+    SLA_MEASUREMENT {
+        business_id sla_measurement_id PK
+        identifier incident_id FK
+        business_value sla_type
+        duration target_duration
+        duration actual_elapsed_duration
+        business_value measurement_status
+        derived_value breach_indicator
+        timestamp measurement_started_at
+        timestamp measurement_ended_at
+    }
+    ASSIGNMENT_GROUP {
+        business_id assignment_group_id PK
+        name group_name
+        business_value group_type
+        business_value active_status
+    }
+    CONFIGURATION_ITEM {
+        business_id ci_id PK
+        name ci_name
+        business_value ci_type
+        business_value environment
+        business_value lifecycle_status
+    }
+    CHANGE_REQUEST {
+        business_id change_id PK
+        identifier primary_ci_id FK
+        business_value change_type
+        business_value status
+        timestamp planned_start_at
+        timestamp planned_end_at
+        timestamp actual_completed_at
+        business_value outcome_classification
+    }

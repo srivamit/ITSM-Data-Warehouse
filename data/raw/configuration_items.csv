@@ -1,0 +1,9 @@
+ci_id,ci_name,ci_type,environment,lifecycle_status
+CI001,Orchid Service Portal,Application,Production,Active
+CI002,Maple Billing Service,Application,Production,Active
+CI003,Cedar Identity Service,Application,Production,Active
+CI004,Juniper Web Node,Server,Production,Active
+CI005,Aspen Batch Node,Server,Production,Active
+CI006,Willow Records Database,Database,Production,Active
+CI007,Birch Reporting Database,Database,Test,Active
+CI008,Elm Service Portal,Application,Development,Under review

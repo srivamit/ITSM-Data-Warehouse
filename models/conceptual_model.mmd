@@ -1,0 +1,5 @@
+erDiagram
+    ASSIGNMENT_GROUP ||--o{ INCIDENT : "responsible for"
+    CONFIGURATION_ITEM ||--o{ INCIDENT : "primary CI for"
+    INCIDENT ||--o{ SLA_MEASUREMENT : "has measurements"
+    CONFIGURATION_ITEM ||--o{ CHANGE_REQUEST : "primary CI for"

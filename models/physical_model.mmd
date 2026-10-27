@@ -1,0 +1,57 @@
+erDiagram
+    ASSIGNMENT_GROUPS o|--o{ INCIDENTS : "primary group for"
+    CONFIGURATION_ITEMS o|--o{ INCIDENTS : "primary CI for"
+    INCIDENTS ||--o{ SLA_MEASUREMENTS : "has measurements"
+    CONFIGURATION_ITEMS o|--o{ CHANGE_REQUESTS : "primary CI for"
+
+    ASSIGNMENT_GROUPS {
+        INTEGER assignment_group_key PK
+        TEXT assignment_group_id UK
+        TEXT group_name
+        TEXT group_type
+        TEXT active_status
+    }
+    CONFIGURATION_ITEMS {
+        INTEGER configuration_item_key PK
+        TEXT ci_id UK
+        TEXT ci_name
+        TEXT ci_type
+        TEXT environment
+        TEXT lifecycle_status
+    }
+    INCIDENTS {
+        INTEGER incident_key PK
+        TEXT incident_id UK
+        TEXT short_description
+        TEXT priority
+        TEXT status
+        TEXT opened_at
+        TEXT resolved_at
+        INTEGER assignment_group_key FK
+        INTEGER primary_ci_key FK
+        TEXT source_created_at
+        TEXT source_updated_at
+    }
+    SLA_MEASUREMENTS {
+        INTEGER sla_measurement_key PK
+        TEXT sla_measurement_id UK
+        INTEGER incident_key FK
+        TEXT sla_type
+        INTEGER target_duration_seconds
+        INTEGER actual_elapsed_seconds
+        TEXT measurement_status
+        INTEGER breach_indicator
+        TEXT measurement_started_at
+        TEXT measurement_ended_at
+    }
+    CHANGE_REQUESTS {
+        INTEGER change_request_key PK
+        TEXT change_id UK
+        INTEGER primary_ci_key FK
+        TEXT change_type
+        TEXT status
+        TEXT planned_start_at
+        TEXT planned_end_at
+        TEXT actual_completed_at
+        TEXT outcome_classification
+    }
